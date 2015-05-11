@@ -1,0 +1,178 @@
+% This work is the property of Aleksandr Salo,
+% Student of Baylor University, Computer Science Department. 
+% Copying or using without notifying me is not allowed. 
+% Contact email is alexsalovrn@gmail.com
+
+\documentclass{article}
+
+\usepackage{fullpage}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\newcommand*{\Perm}[2]{{}^{#1}\!P_{#2}}%
+\newcommand*{\Comb}[2]{{}^{#1}C_{#2}}%
+\newcommand{\mytilde}{\raise.17ex\hbox{$\scriptstyle\mathtt{\sim}$}}
+
+% Dr. Hamerly's customization
+% tell Latex to use no paragraph indentation, but leave some space between
+% paragraphs 
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0.1in}
+
+\title{Assignment 0}
+\date{Due Jan 20, 2015}
+\author{Aleksandr Salo}
+
+\begin{document}
+\maketitle
+
+\section*{Simple exercises}
+	\begin{enumerate}
+		\item  Find the value x that maximizes $f(x) = -3x^2 + 24x - 30$\\
+		$f'(x) = -6x + 24$\\
+		$f_{max}: -6x + 24 = 0$\\
+		$x = 4$\\
+		$f''(x) = -6 < 0$\\
+		hence $x = 4$ is a value that maximize f
+		
+		
+		\item Find the partial derivatives of $g(x)$ with respect to $x_0$ and $x_1$: $g(x) = 3x^3_0 - 2x_0x^2_1 + 4x_1 - 8$\\
+		$\frac{\partial g}{\partial x_0} = 9x^2_0 - 2x^2_1$\\
+		$\frac{\partial g}{\partial x_1} = -4x_0x_1 + 4$\\	
+		
+		\item What is the value of $AB^T + C^{-1}$, if the following define A, B, and C? Use Matlab to check your
+		answer
+		
+		\[
+			A =	\begin{bmatrix}
+			3 & 4 & 5\\
+			6 & 7 & 8
+			\end{bmatrix}			
+			B =	\begin{bmatrix}
+			1 & 2 & 3\\
+			4 & 5 & 6
+			\end{bmatrix}			
+			C =	\begin{bmatrix}
+			1 & 0\\
+			0 & 2
+			\end{bmatrix}	
+		\]
+		
+		Transpose B; invert C using Cramer's rule:		
+		\[
+		A =	\begin{bmatrix}
+		3 & 4 & 5\\
+		6 & 7 & 8
+		\end{bmatrix}		
+		B^T =	\begin{bmatrix}
+		1 & 4\\
+		2 & 5\\
+		3 & 6
+		\end{bmatrix}			
+		C^{-1} = \frac{1}{1*2 - 0*0}\begin{bmatrix}
+		2 & 0\\
+		0 & 1
+		\end{bmatrix}			
+		\]
+		
+		\[
+			AB^T + C^{-1} = 
+			\begin{bmatrix}
+			3*1 + 4*2 + 5*3 & 3*4 + 4*5 + 5*6 \\
+			6*1 + 7*2 + 8*3 & 6*4 + 7*5 + 8*6 
+			\end{bmatrix}
+			+ \begin{bmatrix}
+			1 & 0\\
+			0 & \frac{1}{2}
+			\end{bmatrix}	
+		\]
+		
+		Simplifying:
+		\[			
+			\begin{bmatrix}
+			26 & 62 \\
+			44 & 107 
+			\end{bmatrix}
+			+ \begin{bmatrix}
+			\frac{1}{2} & 0\\
+			0 & 1
+			\end{bmatrix}
+			= \begin{bmatrix}
+			27 & 62 \\
+			44 & 107.5 
+			\end{bmatrix}
+		\]
+		
+		\item Write down the mathematical definitions of the simple Gaussian, multivariate Gaussian, Bernoulli,
+		binomial and exponential distributions.\\
+		
+		\textbf{Gaussian (Normal) distribution:} $$f(x, \mu, \sigma) = \frac{1}{\sigma \sqrt{2\pi}} \exp^{-\frac{(x-\mu)^2}{2\sigma^2}}$$
+		
+		\textbf{Multivariate Gaussian distribution:} $$f(x_1, \dots , x_k) = \frac{1}{\sqrt{(2\pi)^k |\Sigma|}} \exp^{-\frac{1}{2}(x-\mu)^T \Sigma^{-1} (x - \mu)}$$
+		
+		\textbf{Bernoulli distribution:} 
+		\begin{displaymath}
+		f(n) = \left\{
+		\begin{array}{lr}
+		1 - p & : n = 0\\
+		p & : n = 1
+		\end{array}
+		\right.
+		\end{displaymath} 
+		
+		\textbf{Binomial distribution:} 	
+		$$P_p(n|N) = \binom Nn p^nq^{N-n} = \frac{N!}{n!(N-n)!} p^n (1-p)^{N-n}$$
+
+		\textbf{Exponential distribution:} 
+		$$f(x) = \lambda \exp^{-\lambda x}$$
+
+
+		\item What is the relationship between the Bernoulli and binomial distributions?\\
+		The binomial distribution gives the discrete probability distribution $P_p(n|N)$ of obtaining exactly n successes out of N Bernoulli trials (each with p of success). \\
+		In other words, given sequence of N independent events what is the probability that n would turn to be success? 
+
+		\item Suppose that random variable $X \mytilde N(1, 3)$. What is its expected value?\\
+		Answer: 1. Since $ N(1, 3)$ denotes normal distr with $\mu$ = 1.
+		
+		\item Suppose that random variable Y has distribution:
+		\begin{displaymath}
+			p(Y = y) = \left\{
+			\begin{array}{lr}
+			\exp(-y) & : y \ge 0\\
+			0 & : otherwise
+			\end{array}
+			\right.
+		\end{displaymath} 
+		
+		\begin{itemize}
+			\item Verify that $\int_{y=-\infty}^\infty p(Y=y)=1$\\
+			$$\int_0^\infty exp^{-x} = \lim_{a\to\infty} -\exp^{-x} \binom a0$$
+			$$\lim_{a\to\infty} -1 (\exp^{-a}-\exp^0)$$
+			$$\lim_{a\to\infty} -1 (\frac{1}{\exp^{\infty}} - 1) = 1$$			
+			Thus $\int_{y=-\infty}^\infty p(y)$ equals 1 for y $\ge$ 0, and trivially 0 otherwise; thus infinite integral equal 1. 
+			
+			\item Mean:
+			$$\mu_Y = \int_{y=-\infty}^\infty p(y)ydy = \int_{0}^{\infty} \frac{y}{\exp^y} = 1$$
+			
+			\item Var:
+			$$\sigma^2 = Var[Y] = \int_{y=-\infty}^\infty p(y)(y-\mu_Y)^2dy = \int_{0}^{\infty} \frac{(y-\mu_Y)^2}{\exp^y} = 1$$
+		\end{itemize}
+		
+		\item What is $E[Y | Y \ge 10]?$
+		$$E[Y | Y \ge 10] = \int_{y=10}^\infty p(y)dy = -(y+1)e^{-y} \binom \infty {10} = 0 - (-11e^{-10}) = 0.000499399 $$
+		
+	\end{enumerate}
+	
+\section{Formatting example} %Thanks to James Boer
+	Verify that $\int_{y = -\infty}^{\infty} p(Y = y) = 1$
+	\begin{align*}
+	\int_{y = -\infty}^{\infty} p(Y = y) &= \int_{-\infty}^{0} 0\, dy + \int_{0}^{\infty} e^{-y}\, dy \\
+	&= \left. -e^{-y} \right|_0^\infty \\
+	&= 0 - (-1) \\
+	&= 1
+	\end{align*}
+     
+     
+\end{document}

@@ -1,0 +1,9 @@
+\BOOKMARK [1][-]{section.1}{Maximum likelihood for linear regression \(10 points\)}{}% 1
+\BOOKMARK [1][-]{section.2}{Locally-weighted linear regression \(20 points\)}{}% 2
+\BOOKMARK [1][-]{section.3}{Gradient descent, Newton's method, and logistic regression \(30 points\)}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Gradient Descent}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Newton's method}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.3}{Convenient dataset}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.4}{Theta behavior without accuracy condition}{section.3}% 7
+\BOOKMARK [1][-]{section.4}{Extra credit 1: deriving logistic regression \(+5 points\)}{}% 8
+\BOOKMARK [1][-]{section.5}{Extra credit 2: weighted logistic regression \(+5 points\)}{}% 9
